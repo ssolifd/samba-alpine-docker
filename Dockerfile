@@ -12,8 +12,9 @@ RUN apk add samba samba-common-tools supervisor curl && rm -rf /var/cache/apk/*
 RUN mkdir /config /shared
 
 # copy config files from project folder to get a default config going for samba and supervisord
-COPY *.conf /config/
-
+#COPY *.conf /config/
+RUN curl "https://raw.githubusercontent.com/ssolifd/samba-alpine-docker/master/smb.conf" -o  /config/smb.conf
+RUN curl "https://raw.githubusercontent.com/ssolifd/samba-alpine-docker/master/supervisord.conf" -o  /config/supervisord.conf
 # add a non-root user and group called "rio" with no password, no home dir, no shell, and gid/uid set to 1000
 RUN addgroup -g 1000 rio && adduser -D -H -G rio -s /bin/false -u 1000 rio
 
