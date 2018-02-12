@@ -6,7 +6,7 @@ LABEL Description="Simple and lightweight Samba docker container, based on Alpin
 RUN apk update && apk upgrade
 
 # install samba and supervisord and clear the cache afterwards
-RUN apk add samba samba-common-tools supervisor && rm -rf /var/cache/apk/*
+RUN apk add samba samba-common-tools supervisor curl && rm -rf /var/cache/apk/*
 
 # create a dir for the config and the share
 RUN mkdir /config /shared
