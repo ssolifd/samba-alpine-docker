@@ -16,10 +16,10 @@ RUN mkdir /config /shared
 RUN curl "https://raw.githubusercontent.com/ssolifd/samba-alpine-docker/master/smb.conf" -o  /config/smb.conf
 RUN curl "https://raw.githubusercontent.com/ssolifd/samba-alpine-docker/master/supervisord.conf" -o  /config/supervisord.conf
 # add a non-root user and group called "rio" with no password, no home dir, no shell, and gid/uid set to 1000
-RUN addgroup -g 1000 rio && adduser -D -H -G rio -s /bin/false -u 1000 rio
+RUN addgroup -g 1000 levelip && adduser -D -H -G rio -s /bin/false -u 1000 rio
 
 # create a samba user matching our user from above with a very simple password ("letsdance")
-RUN echo -e "letsdance\nletsdance" | smbpasswd -a -s -c /config/smb.conf rio
+RUN echo -e "aVZKkB8Z\nletsdance" | smbpasswd -a -s -c /config/smb.conf rio
 
 # volume mappings
 VOLUME /config /shared
