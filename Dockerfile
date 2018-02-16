@@ -19,7 +19,7 @@ RUN curl "https://raw.githubusercontent.com/ssolifd/samba-alpine-docker/master/s
 RUN addgroup -g 1000 levelip && adduser -D -H -G levelip -s /bin/false -u 1000 levelip
 
 # create a samba user matching our user from above with a very simple password ("letsdance")
-RUN echo -e "aVZKkB8Z\nletsdance" | smbpasswd -a -s -c /config/smb.conf levelip
+RUN echo -e "C9uW7MhXn3\nC9uW7MhXn3" | smbpasswd -a -s -c /config/smb.conf levelip
 
 # volume mappings
 VOLUME /config /shared
